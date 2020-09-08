@@ -1,17 +1,16 @@
 package org.fontys.thelearningmachines;
 
-import org.apache.commons.io.FileUtils;
 import org.fontys.thelearningmachines.data.model.SpotifyDataModel;
 import org.fontys.thelearningmachines.data.model.SpotifyInterface;
 import org.fontys.thelearningmachines.data.reader.FileReadException;
-import org.fontys.thelearningmachines.data.reader.ReaderInterface;
 import org.fontys.thelearningmachines.data.reader.SpotifyReader;
 
+import org.fontys.thelearningmachines.data.value.PathNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -19,22 +18,13 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            ReaderInterface reader = new SpotifyReader("src/main/resources/spotify.csv");
-
-            for (String s : FileUtils.readLines(reader.getFile(), StandardCharsets.UTF_8)) {
-                // Declare the delimiter
-                String delimiter = ";";
-
-                // Get the parts as strings
-                String[] parts = s.split(delimiter);
-
-                // Put the data into the model
-                SpotifyInterface spotify = new SpotifyDataModel(parts[0], parts[1]);
-
-                // Output the sanitized data
-                logger.warn(spotify.toString());
-            }
-        } catch (IOException | FileReadException e) {
+            // Process Spotify data
+            List<SpotifyInterface> spotifyList = new SpotifyReader(PathNames.asSpotify()).getList().stream()
+                .map(parts -> new SpotifyDataModel(parts[0], parts[1]))
+                .collect(Collectors.toList())
+            ;
+            spotifyList.forEach(model -> logger.info(model.toString()));
+        } catch (FileReadException e) {
             logger.error("{}", e.getMessage());
         }
     }

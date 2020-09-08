@@ -5,6 +5,6 @@ import java.text.MessageFormat;
 public class FileReadException extends Exception {
 
     public FileReadException(String path) {
-        super(MessageFormat.format("The file {0} does not exist!", path));
+        super(MessageFormat.format("Cannot read from file {0}!", path));
     }
 }
