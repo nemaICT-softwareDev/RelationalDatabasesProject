@@ -1,18 +1,16 @@
 package org.fontys.thelearningmachines.data.model;
 
-import org.fontys.thelearningmachines.data.interfaces.SpotifyInterface;
-
 import java.text.MessageFormat;
 
-public class SpotifyDataModel implements SpotifyInterface {
+final public class SpotifyDataModel implements SpotifyInterface {
 
-    String id;
+    private final String id;
 
-    String name;
+    private final String name;
 
     public SpotifyDataModel(String id, String name) {
-        this.id = id;
-        this.name = name;
+        this.id = id.trim();
+        this.name = name.trim();
     }
 
     @Override

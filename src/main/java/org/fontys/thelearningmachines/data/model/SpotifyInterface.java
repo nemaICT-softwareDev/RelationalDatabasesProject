@@ -1,4 +1,4 @@
-package org.fontys.thelearningmachines.data.interfaces;
+package org.fontys.thelearningmachines.data.model;
 
 public interface SpotifyInterface {
 
