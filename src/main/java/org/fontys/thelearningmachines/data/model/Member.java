@@ -1,6 +1,7 @@
 package org.fontys.thelearningmachines.data.model;
 
 
+import java.text.MessageFormat;
 import java.util.Date;
 
 public class Member implements MemberInterface{
@@ -8,22 +9,17 @@ public class Member implements MemberInterface{
 
      @Override
      public String toString() {
-         return "Member{" +
-                 "surname='" + surname + '\'' +
-                 ", lastname='" + lastname + '\'' +
-                 ", emailaddress='" + emailaddress + '\'' +
-                 ", telephone='" + telephone + '\'' +
-                 ", photo='" + photo + '\'' +
-                 ", nickname='" + nickname + '\'' +
-                 ", gender='" + gender + '\'' +
-                 ", dateOfBirth=" + dateOfBirth +
-                 ", countryShortName='" + countryShortName + '\'' +
-                 '}';
+         return MessageFormat.format("{0} {1},  {2}, ({3}) - {4} - {5} - {6} - {7} - {8}",
+                 this.getSurname(), this.getLastname(),
+                 this.getEmail(), this.getTelephone(),
+                 this.getPhoto(), this.getNickName(),
+                 this.getGender(), this.getDateOfBirth(),
+                 this.getCountryShortName());
      }
 
      private String surname;
     private String lastname;
-    private String emailaddress;
+    private String emailAddress;
     private String telephone;
     private String photo;
     private String nickname;
@@ -48,7 +44,7 @@ public class Member implements MemberInterface{
 
     @Override
     public String getEmail() {
-        return emailaddress;
+        return emailAddress;
     }
 
     @Override
@@ -98,7 +94,7 @@ public class Member implements MemberInterface{
 
     @Override
     public void setEmailAddress(String mailaddress) {
-        this.emailaddress = mailaddress;
+        this.emailAddress = mailaddress;
     }
 
     @Override
