@@ -7,9 +7,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 
-final public class SpotifyReader extends AbstractReader implements ReaderInterface {
+final public class CsvReader extends AbstractReader implements ReaderInterface {
 
-    public SpotifyReader(String pathname) throws FileReadException {
+    public CsvReader(String pathname) throws FileReadException {
         super(pathname);
     }
 

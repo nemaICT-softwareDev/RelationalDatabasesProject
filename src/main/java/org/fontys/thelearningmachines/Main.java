@@ -11,16 +11,13 @@ public class Main {
 
     private static final Logger logger = LoggerFactory.getLogger(org.fontys.thelearningmachines.Main.class);
 
-    public static void main(String[] args) {
-        try {
+    public static void main(String[] args) throws FileReadException {
+
             // Process Spotify data
             new ProcessSpotifyData().getSpotifyData(logger);
             // Process Member data
             new ProcessMemberData().getMembers(logger);
 
-      } catch (FileReadException e) {
-            logger.error("{}", e.getMessage());
-        }
 
     }
 }
