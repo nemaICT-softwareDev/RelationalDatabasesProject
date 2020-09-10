@@ -29,12 +29,7 @@ import java.util.stream.Collectors;
                           Member member = new Member();
                           Date birthDate = new Date();
                           try {
-                    /*Note the importance of the explicit Locale argument. If you omit it,
-                    then it will use the default locale which is not necessarily English
-                    as used in the month name of the input string.
-                    If the locale doesn't match with the input string, then you would confusingly
-                    get a java.text.ParseException even though when the format pattern seems valid.*/
-                              birthDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(memberDetails[7]);
+                            birthDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(memberDetails[7]);
                           } catch (ParseException e) {
                               e.printStackTrace();
                           }
@@ -53,7 +48,7 @@ import java.util.stream.Collectors;
                       })
                       .filter(obj -> !obj.getSurname().contains("surname")).collect(Collectors.toList());
 
-             logger.info(MessageFormat.format("Number of members in list {0}", memberList.size()));
+             logger.info(MessageFormat.format("Number of membersList in list {0}", memberList.size()));
 
               memberList.forEach(member -> logger.info(member.toString()));
           }catch(FileReadException ex){
