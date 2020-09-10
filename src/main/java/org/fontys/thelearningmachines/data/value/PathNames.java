@@ -17,6 +17,6 @@ public class PathNames {
     }
 
     public static String asMemberList() {
-    return new PathNames("C:/Users/lopes/Documents/Studie Software engineering 2021/membersList.csv").getPathname();
+    return new PathNames("src/main/resources/membersList.csv").getPathname();
 }
 }

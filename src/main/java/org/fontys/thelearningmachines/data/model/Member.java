@@ -32,30 +32,10 @@ public class Member implements MemberInterface{
     private String countryShortName;
     private String password;
 
-    public Member(String surname,
-                  String lastname,
-                  String emailaddress,
-                  String telephone,
-                  String photo,
-                  String nickname,
-                  String gender,
-                  Date dateOfBirth,
-                  String countryShortName,
-                  String password) {
-
-        this.surname = surname;
-        this.lastname = lastname;
-        this.emailaddress = emailaddress;
-        this.telephone = telephone;
-        this.photo = photo;
-        this.nickname = nickname;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.countryShortName = countryShortName;
-        this.password = password;
-    }
 
     public Member(){}
+
+
      @Override
     public String getSurname() {
         return surname;
