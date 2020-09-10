@@ -1,14 +1,21 @@
 package org.fontys.thelearningmachines;
 
+import org.fontys.thelearningmachines.data.model.Member;
+import org.fontys.thelearningmachines.data.model.MemberInterface;
 import org.fontys.thelearningmachines.data.model.SpotifyDataModel;
 import org.fontys.thelearningmachines.data.model.SpotifyInterface;
 import org.fontys.thelearningmachines.data.reader.FileReadException;
+import org.fontys.thelearningmachines.data.reader.MemberReader;
 import org.fontys.thelearningmachines.data.reader.SpotifyReader;
 
 import org.fontys.thelearningmachines.data.value.PathNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +31,39 @@ public class Main {
                 .collect(Collectors.toList())
             ;
             spotifyList.forEach(model -> logger.info(model.toString()));
+
+            // Process Member data
+            List<MemberInterface> memberList = new MemberReader(PathNames.asMemberList()).getList().stream()
+                    .map(memberDetails -> {
+                        Member member = new Member();
+                        if (memberDetails[0].equals("surname") && memberDetails[1].equals("lastname") && memberDetails[2].equals("emailaddress")
+                                && memberDetails[3].equals("telephone") && memberDetails[4].equals("photo") && memberDetails[5].equals("nickname")
+                                && memberDetails[6].equals("gender") && memberDetails[7].equals("dateofbirth") && memberDetails[8].equals("countryShortName")
+                                && memberDetails[9].equals("password")) {
+                        } else {
+                           Date birthDate = new Date();
+                            try {
+                                birthDate = new SimpleDateFormat("MMMM/dd/yyyy").parse(memberDetails[7]);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            member.setSurname(memberDetails[0]);
+                            member.setLastname(memberDetails[1]);
+                            member.setEmailAddress(memberDetails[2]);
+                            member.setTelephone(memberDetails[3]);
+                            member.setPhoto(memberDetails[4]);
+                            member.setNickname(memberDetails[5]);
+                            member.setGender(memberDetails[6]);
+                            member.setDateOfBirth(birthDate);
+                            member.setCountryShortName(memberDetails[8]);
+                            member.setPassword(memberDetails[9]);
+                        }
+                        return member;
+                    }).collect(Collectors.toList());
+
+            System.out.println(memberList.size());
+            memberList.forEach(member -> logger.info(member.toString()));
+
         } catch (FileReadException e) {
             logger.error("{}", e.getMessage());
         }
