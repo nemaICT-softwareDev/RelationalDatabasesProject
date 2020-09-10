@@ -15,8 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -43,7 +42,12 @@ public class Main {
                         } else {
                            Date birthDate = new Date();
                             try {
-                                birthDate = new SimpleDateFormat("MMMM/dd/yyyy").parse(memberDetails[7]);
+                                /*Note the importance of the explicit Locale argument. If you omit it,
+                                then it will use the default locale which is not necessarily English
+                                as used in the month name of the input string.
+                                If the locale doesn't match with the input string, then you would confusingly
+                                get a java.text.ParseException even though when the format pattern seems valid.*/
+                               birthDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(memberDetails[7]);
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
