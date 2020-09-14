@@ -1,5 +1,7 @@
 package org.fontys.thelearningmachines.data.model;
 
+import org.fontys.thelearningmachines.data.model.interfaces.SpotifyInterface;
+
 import java.text.MessageFormat;
 
 final public class SpotifyDataModel implements SpotifyInterface {

@@ -1,8 +1,8 @@
 package org.fontys.thelearningmachines.data.dao;
 
 import org.fontys.thelearningmachines.data.model.Member;
-import org.fontys.thelearningmachines.data.model.MemberInterface;
-import org.fontys.thelearningmachines.data.reader.CsvReader;
+import org.fontys.thelearningmachines.data.model.interfaces.MemberInterface;
+import org.fontys.thelearningmachines.data.reader.FileReader;
 import org.fontys.thelearningmachines.data.reader.FileReadException;
 import org.fontys.thelearningmachines.data.value.PathNames;
 import org.slf4j.Logger;
@@ -24,13 +24,13 @@ import java.util.stream.Collectors;
 
           try {
               // Process Member data
-              List<MemberInterface> memberList = new CsvReader(PathNames.asMemberList()).getList().stream()
+              List<MemberInterface> memberList = new FileReader(PathNames.asMemberList()).getList().stream()
                       .map(memberDetails -> {
-                          Member member = new Member();
+                          MemberInterface member = new Member();
                           Date birthDate = new Date();
-                          try {
+                       try {
                             birthDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(memberDetails[7]);
-                          } catch (ParseException e) {
+                       } catch (ParseException e) {
                               e.printStackTrace();
                           }
                           member.setSurname(memberDetails[0]);
@@ -43,6 +43,7 @@ import java.util.stream.Collectors;
                           member.setDateOfBirth(birthDate);
                           member.setCountryShortName(memberDetails[8]);
                           member.setPassword(memberDetails[9]);
+                          member.setIsActive(memberDetails[10].charAt(0));
 
                           return member;
                       })

@@ -1,5 +1,6 @@
 package org.fontys.thelearningmachines;
 
+import org.fontys.thelearningmachines.data.dao.ProcessGenderData;
 import org.fontys.thelearningmachines.data.dao.ProcessMemberData;
 import org.fontys.thelearningmachines.data.dao.ProcessSpotifyData;
 import org.fontys.thelearningmachines.data.reader.FileReadException;
@@ -17,6 +18,8 @@ public class Main {
             new ProcessSpotifyData().getSpotifyData(logger);
             // Process Member data
             new ProcessMemberData().getMembers(logger);
+
+            new ProcessGenderData().getGender(logger);
 
 
     }

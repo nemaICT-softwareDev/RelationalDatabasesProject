@@ -7,9 +7,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 
-final public class CsvReader extends AbstractReader implements ReaderInterface {
+final public class FileReader extends AbstractReader implements ReaderInterface {
 
-    public CsvReader(String pathname) throws FileReadException {
+    public FileReader(String pathname) throws FileReadException {
         super(pathname);
     }
 
@@ -23,4 +23,6 @@ final public class CsvReader extends AbstractReader implements ReaderInterface {
             throw new FileReadException(this.getFile().getPath());
         }
     }
+
+
 }

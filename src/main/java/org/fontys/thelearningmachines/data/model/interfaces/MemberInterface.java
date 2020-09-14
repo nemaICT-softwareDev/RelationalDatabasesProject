@@ -1,5 +1,7 @@
-package org.fontys.thelearningmachines.data.model;
+package org.fontys.thelearningmachines.data.model.interfaces;
 
+
+import org.fontys.thelearningmachines.data.model.Gender;
 
 import java.util.Date;
 
@@ -14,6 +16,9 @@ public interface MemberInterface {
     String getGender();
     Date getDateOfBirth();
     String getCountryShortName();
+    char getIsActive();
+
+
     void setPassword(String password);
     void setSurname(String surname);
     void setLastname(String lastname);
@@ -24,5 +29,6 @@ public interface MemberInterface {
     void setGender(String gender);
     void setDateOfBirth(Date dateOfBirth);
     void setCountryShortName(String countryShortName);
+    void setIsActive(char isActive);
 
 }

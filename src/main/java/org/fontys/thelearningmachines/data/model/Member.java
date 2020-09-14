@@ -1,32 +1,37 @@
 package org.fontys.thelearningmachines.data.model;
 
 
+
+import org.fontys.thelearningmachines.data.model.interfaces.MemberInterface;
+
 import java.text.MessageFormat;
 import java.util.Date;
 
-public class Member implements MemberInterface{
+public class Member implements MemberInterface {
 
 
      @Override
      public String toString() {
-         return MessageFormat.format("{0} {1},  {2}, ({3}) - {4} - {5} - {6} - {7} - {8}",
+         return MessageFormat.format("{0} {1},  {2}, ({3}) - {4} - {5} - {6} - {7} - {8} - {9} ",
                  this.getSurname(), this.getLastname(),
                  this.getEmail(), this.getTelephone(),
                  this.getPhoto(), this.getNickName(),
                  this.getGender(), this.getDateOfBirth(),
-                 this.getCountryShortName());
+                 this.getCountryShortName(),
+                 this.getIsActive());
      }
 
-     private String surname;
-    private String lastname;
-    private String emailAddress;
-    private String telephone;
-    private String photo;
-    private String nickname;
-    private String gender;
-    private Date dateOfBirth;
-    private String countryShortName;
-    private String password;
+        private String surname;
+        private String lastname;
+        private String emailAddress;
+        private String telephone;
+        private String photo;
+        private String nickname;
+        private String gender;
+        private Date dateOfBirth;
+        private String countryShortName;
+        private String password;
+        private char isActive;
 
 
     public Member(){}
@@ -64,7 +69,7 @@ public class Member implements MemberInterface{
 
     @Override
     public String getGender() {
-        return gender;
+        return this.gender;
     }
 
     @Override
@@ -75,6 +80,11 @@ public class Member implements MemberInterface{
     @Override
     public String getCountryShortName() {
         return countryShortName;
+    }
+
+    @Override
+    public char getIsActive() {
+        return isActive;
     }
 
     @Override
@@ -125,5 +135,10 @@ public class Member implements MemberInterface{
     @Override
     public void setCountryShortName(String countryShortName) {
         this.countryShortName = countryShortName;
+    }
+
+    @Override
+    public void setIsActive(char isActive) {
+        this.isActive = isActive;
     }
 }
