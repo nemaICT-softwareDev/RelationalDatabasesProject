@@ -2,13 +2,9 @@ package org.fontys.thelearningmachines.data.model;
 
 import org.fontys.thelearningmachines.data.model.interfaces.RoleInterface;
 
-public class Role implements RoleInterface {
+public final class RoleModel implements RoleInterface {
 
     private String role;
-
-    public Role() {
-    }
-
 
     @Override
     public void setRole(String role) {

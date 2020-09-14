@@ -4,12 +4,11 @@ import org.fontys.thelearningmachines.data.model.interfaces.GenderInterface;
 
 import java.text.MessageFormat;
 
-public class Gender implements GenderInterface {
+public final class GenderModel implements GenderInterface {
 
     private String gender;
 
-
-    public Gender(String gender) {
+    public GenderModel(String gender) {
         this.gender = gender;
     }
 

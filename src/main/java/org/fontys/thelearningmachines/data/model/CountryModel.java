@@ -2,15 +2,11 @@ package org.fontys.thelearningmachines.data.model;
 
 import org.fontys.thelearningmachines.data.model.interfaces.CountryInterface;
 
-public class Country implements CountryInterface {
+public final class CountryModel implements CountryInterface {
 
     private String countryFullnName;
     private String countryShortName;
     private String localisationCode;
-
-
-    public Country() {
-    }
 
     @Override
     public void setCountryFullName(String countryFullName) {

@@ -1,21 +1,24 @@
 package org.fontys.thelearningmachines.data.reader;
 
 import org.apache.commons.io.FileUtils;
+import org.fontys.thelearningmachines.data.option.ReaderOptionInterface;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 
-final public class FileReader extends AbstractReader implements ReaderInterface {
+public final class FileReaderImpl extends AbstractReader implements ReaderInterface {
 
-    public FileReader(String pathname) throws FileReadException {
-        super(pathname);
+    public FileReaderImpl(ReaderOptionInterface options) throws FileReadException {
+        super(options);
     }
 
     public List<String[]> getList() throws FileReadException {
         try {
-            return FileUtils.readLines(this.getFile(), StandardCharsets.UTF_8).stream()
+            return FileUtils.readLines(this.getFile(), StandardCharsets.UTF_8)
+                .stream()
+                .skip(super.getOptions().getSkipRows())
                 .map(s -> s.split(";"))
                 .collect(Collectors.toList())
             ;
