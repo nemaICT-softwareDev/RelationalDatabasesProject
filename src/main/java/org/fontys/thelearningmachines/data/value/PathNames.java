@@ -12,8 +12,7 @@ public class PathNames {
         return pathname;
     }
 
-    public static String asSpotify() {
-        return new PathNames("src/main/resources/spotify.csv").getPathname();
+    public static String asSpotify() { return new PathNames("src/main/resources/spotify.csv").getPathname();
     }
 
     public static String asMemberList() { return new PathNames("src/main/resources/membersList.csv").getPathname();
