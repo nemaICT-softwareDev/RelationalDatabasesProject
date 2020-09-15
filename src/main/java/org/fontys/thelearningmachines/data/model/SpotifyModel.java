@@ -6,17 +6,12 @@ import java.text.MessageFormat;
 
 public final class SpotifyModel implements SpotifyInterface {
 
-    private final String id;
     private final String name;
+    private final String link;
 
-    public SpotifyModel(String id, String name) {
-        this.id = id.trim();
+    public SpotifyModel(String name, String link) {
         this.name = name.trim();
-    }
-
-    @Override
-    public String getId() {
-        return this.id;
+        this.link = link.trim();
     }
 
     @Override
@@ -25,7 +20,12 @@ public final class SpotifyModel implements SpotifyInterface {
     }
 
     @Override
+    public String getLink() {
+        return this.link;
+    }
+
+    @Override
     public String toString() {
-        return MessageFormat.format("{0} ({1})", this.getName(), this.getId());
+        return MessageFormat.format("{0} ({1})", this.getLink(), this.getName());
     }
 }

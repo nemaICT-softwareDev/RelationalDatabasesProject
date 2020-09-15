@@ -9,6 +9,7 @@ import org.fontys.thelearningmachines.data.reader.FileReadException;
 import org.fontys.thelearningmachines.data.value.PathNames;
 import org.slf4j.Logger;
 
+import java.sql.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,15 @@ public final class ProcessSpotifyData {
                 .map(parts -> new SpotifyModel(parts[0], parts[1]))
                 .collect(Collectors.toList());
 
-        spotifyList.forEach(model -> logger.info(model.toString()));
+        String connectionUrl = "jdbc:sqlserver://mssql.fhict.local:1433;database=dbi431929;user=dbi431929;password=FontysICTs4!;encrypt=false;trustServerCertificate=false;loginTimeout=30;";
+
+        try (Connection connection = DriverManager.getConnection(connectionUrl)) {
+            for (SpotifyInterface music : spotifyList) {
+                connection.prepareStatement("INSERT INTO Music (MusicId, SpotifyLink) VALUES ('" + music.getName() + "', '" + music.getLink() + "');", Statement.RETURN_GENERATED_KEYS).execute();
+                logger.info(music.toString());
+            }
+        } catch (SQLException e) {
+            logger.error("{}", e.getMessage());
+        }
     }
 }
