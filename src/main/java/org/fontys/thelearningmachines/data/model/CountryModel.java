@@ -2,6 +2,8 @@ package org.fontys.thelearningmachines.data.model;
 
 import org.fontys.thelearningmachines.data.model.interfaces.CountryInterface;
 
+import java.text.MessageFormat;
+
 public final class CountryModel implements CountryInterface {
 
     private String countryFullnName;
@@ -36,5 +38,10 @@ public final class CountryModel implements CountryInterface {
     @Override
     public String getCountryLocalisationCode() {
         return localisationCode;
+    }
+
+    @Override
+    public String toString() {
+        return MessageFormat.format("LocalisationCode: {0} CountryCode: {1} Country name: {2}", this.localisationCode, this.countryShortName, this.countryFullnName);
     }
 }

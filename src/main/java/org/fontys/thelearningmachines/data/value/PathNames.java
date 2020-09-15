@@ -24,4 +24,8 @@ public final class PathNames {
         return new PathNames("src/main/resources/genderList.txt").getPathname();
     }
 
+    public static String asISO3166_1ContryCodes() {
+        return new PathNames("src/main/resources/ISO3166-1CountryCodes.xls").getPathname();
+    }
+
 }

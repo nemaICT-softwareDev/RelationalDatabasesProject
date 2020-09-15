@@ -3,12 +3,15 @@ package org.fontys.thelearningmachines.data.model;
 import org.fontys.thelearningmachines.data.model.interfaces.MemberInterface;
 
 import java.text.MessageFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public final class MemberModel implements MemberInterface {
 
     private String surname;
-    private String lastname;
+    private String lastName;
     private String emailAddress;
     private String telephone;
     private String photo;
@@ -30,13 +33,13 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     @Override
-    public void setEmailAddress(String mailaddress) {
-        this.emailAddress = mailaddress;
+    public void setDateOfBirth(String dateOfBirth) throws ParseException {
+        this.dateOfBirth = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dateOfBirth);
     }
 
     @Override
@@ -60,8 +63,8 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
@@ -85,8 +88,8 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public String getLastname() {
-        return lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
@@ -132,7 +135,7 @@ public final class MemberModel implements MemberInterface {
     @Override
     public String toString() {
         return MessageFormat.format("{0} {1},  {2}, ({3}) - {4} - {5} - {6} - {7} - {8} - {9} ",
-                this.getSurname(), this.getLastname(),
+                this.getSurname(), this.getLastName(),
                 this.getEmail(), this.getTelephone(),
                 this.getPhoto(), this.getNickName(),
                 this.getGender(), this.getDateOfBirth(),
