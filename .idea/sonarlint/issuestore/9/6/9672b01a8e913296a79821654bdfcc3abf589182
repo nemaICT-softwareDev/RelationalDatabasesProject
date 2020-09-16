@@ -1,0 +1,9 @@
+
+m
+java:S1301,"KReplace this "switch" statement by "if" statements to increase readability.(Ýï¾¬ùÿÿÿÿ8Èæú‘É.
+z	java:S131>"YComplete cases by adding the missing enum constants or add a default case to this switch.(óëÕŠùÿÿÿÿ8üÐ½•É.
+m
+java:S1301>"KReplace this "switch" statement by "if" statements to increase readability.(óëÕŠùÿÿÿÿ8üÐ½•É.
+C	java:S131,""Add a default case to this switch.(Ýï¾¬ùÿÿÿÿ8àýñ‘É.
+¸
+java:S1130"•Remove the declaration of thrown exception 'org.fontys.thelearningmachines.data.reader.FileReadException', as it cannot be thrown from method's body.(„‰ç½úÿÿÿÿ8Å‘Ø•É.
