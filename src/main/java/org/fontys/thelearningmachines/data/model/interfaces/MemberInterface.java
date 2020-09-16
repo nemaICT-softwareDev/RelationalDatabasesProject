@@ -12,11 +12,8 @@ public interface MemberInterface {
     void setTelephone(String telephone);
     void setPhoto(String photo);
     void setNickname(String nickname);
-
     void setGender(String gender);
-
     void setDateOfBirth(String dateOfBirth) throws ParseException;
-
     void setCountryShortName(String countryShortName);
     void setIsActive(char isActive);
 
