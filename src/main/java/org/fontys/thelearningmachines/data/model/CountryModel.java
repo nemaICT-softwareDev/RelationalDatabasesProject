@@ -4,13 +4,13 @@ import org.fontys.thelearningmachines.data.model.interfaces.CountryInterface;
 
 public final class CountryModel implements CountryInterface {
 
-    private String countryFullnName;
+    private String countryFullName;
     private String countryShortName;
     private String localisationCode;
 
     @Override
-    public void setCountryFullName(String countryFullName) {
-        this.countryFullnName = countryFullName;
+    public String getCountryFullName() {
+        return countryFullName;
     }
 
     @Override
@@ -24,8 +24,8 @@ public final class CountryModel implements CountryInterface {
     }
 
     @Override
-    public String getCountryFullName() {
-        return countryFullnName;
+    public void setCountryFullName(String countryFullName) {
+        this.countryFullName = countryFullName;
     }
 
     @Override
