@@ -1,5 +1,6 @@
 package org.fontys.thelearningmachines.data.model.interfaces;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public interface MemberInterface {
@@ -11,8 +12,11 @@ public interface MemberInterface {
     void setTelephone(String telephone);
     void setPhoto(String photo);
     void setNickname(String nickname);
+
     void setGender(String gender);
-    void setDateOfBirth(Date dateOfBirth);
+
+    void setDateOfBirth(String dateOfBirth) throws ParseException;
+
     void setCountryShortName(String countryShortName);
     void setIsActive(char isActive);
 

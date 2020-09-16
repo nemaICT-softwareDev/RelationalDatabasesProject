@@ -3,7 +3,10 @@ package org.fontys.thelearningmachines.data.model;
 import org.fontys.thelearningmachines.data.model.interfaces.MemberInterface;
 
 import java.text.MessageFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public final class MemberModel implements MemberInterface {
 
@@ -60,8 +63,8 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDateOfBirth(String dateOfBirth) throws ParseException {
+        this.dateOfBirth = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dateOfBirth);
     }
 
     @Override
