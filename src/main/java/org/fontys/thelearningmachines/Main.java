@@ -1,14 +1,11 @@
 package org.fontys.thelearningmachines;
 
-import org.fontys.thelearningmachines.data.dao.*;
+import lombok.extern.slf4j.Slf4j;
+import org.fontys.thelearningmachines.data.dao.ProcessSpotifyData;
 import org.fontys.thelearningmachines.data.reader.FileReadException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+@Slf4j
 public class Main {
-
-    private static final Logger log = LoggerFactory.getLogger(org.fontys.thelearningmachines.Main.class);
 
     public static void main(String[] args) {
         try {

@@ -24,6 +24,6 @@ public final class GenderModel implements GenderInterface {
 
     @Override
     public String toString() {
-        return MessageFormat.format("Known Genders: {0}", this.getGender() );
+        return MessageFormat.format("{0}", this.getGender());
     }
 }

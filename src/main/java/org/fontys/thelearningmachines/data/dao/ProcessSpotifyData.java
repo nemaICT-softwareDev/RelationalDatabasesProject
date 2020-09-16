@@ -4,12 +4,15 @@ import org.fontys.thelearningmachines.data.model.SpotifyModel;
 import org.fontys.thelearningmachines.data.model.interfaces.SpotifyInterface;
 import org.fontys.thelearningmachines.data.option.ReaderOptionBuilder;
 import org.fontys.thelearningmachines.data.option.ReaderOptionInterface;
-import org.fontys.thelearningmachines.data.reader.FileReaderImpl;
 import org.fontys.thelearningmachines.data.reader.FileReadException;
+import org.fontys.thelearningmachines.data.reader.FileReaderImpl;
 import org.fontys.thelearningmachines.data.value.PathNames;
 import org.slf4j.Logger;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +29,7 @@ public final class ProcessSpotifyData {
                 .map(parts -> new SpotifyModel(parts[0], parts[1]))
                 .collect(Collectors.toList());
 
-        String connectionUrl = "jdbc:sqlserver://mssql.fhict.local:1433;database=dbi431929;user=dbi431929;password=FontysICTs4!;encrypt=false;trustServerCertificate=false;loginTimeout=30;";
+        String connectionUrl = new DatabaseConnector().dbConnector();
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             for (SpotifyInterface music : spotifyList) {
