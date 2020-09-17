@@ -31,7 +31,7 @@ public final class ProcessMemberData {
                 .map(memberDetails -> {
                     MemberInterface member = new MemberModel();
                     try {
-                    member.setSurname(memberDetails[0]);
+                        member.setSurname(memberDetails[0]);
                         member.setLastname(memberDetails[1]);
                         member.setEmailAddress(memberDetails[2]);
                         member.setTelephone(memberDetails[3]);
@@ -41,7 +41,7 @@ public final class ProcessMemberData {
                         member.setDateOfBirth(memberDetails[7]);
                         member.setCountryId(memberDetails[8]);
                         member.setPassword(memberDetails[9]);
-                        member.setIsActive(memberDetails[10].charAt(0));
+                        member.setIsActive(memberDetails[10]);
                     } catch (ParseException e) {
                         logger.error("{}", e.getMessage());
                     }
