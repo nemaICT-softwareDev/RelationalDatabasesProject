@@ -7,5 +7,11 @@
       <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:jtds:sqlserver://mssql.fhict.local</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Microsoft SQL Server (jTds) - @mssql.fhict.local" uuid="01200060-2db3-41ff-a6c1-f9b29b36285c">
+      <driver-ref>sqlserver.jtds</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:jtds:sqlserver://mssql.fhict.local</jdbc-url>
+    </data-source>
   </component>
 </project>
