@@ -1,7 +1,7 @@
 package org.fontys.thelearningmachines;
 
-import org.fontys.thelearningmachines.data.dao.*;
-import org.fontys.thelearningmachines.data.reader.FileReadException;
+import org.fontys.thelearningmachines.application.service.dao.ProcessSpotifyData;
+import org.fontys.thelearningmachines.application.service.reader.FileReadException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
