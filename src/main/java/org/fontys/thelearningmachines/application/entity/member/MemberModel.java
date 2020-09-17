@@ -15,7 +15,7 @@ public final class MemberModel implements MemberInterface {
     private Date dateOfBirth;
     private String countryShortName;
     private String password;
-    private char isActive;
+    private boolean isActive;
 
     @Override
     public void setPassword(String password) {
@@ -68,8 +68,8 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setIsActive(char isActive) {
-        this.isActive = isActive;
+    public boolean getIsActive() {
+        return isActive;
     }
 
     @Override
@@ -123,8 +123,13 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public char getIsActive() {
-        return isActive;
+    public void setIsActive(String isActive) {
+        if (isActive.equals("y")) {
+            this.isActive = true;
+        } else {
+            this.isActive = false;
+        }
+
     }
 
     @Override

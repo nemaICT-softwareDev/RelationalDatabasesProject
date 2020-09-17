@@ -14,17 +14,28 @@ public interface MemberInterface {
     void setGender(String gender);
     void setDateOfBirth(Date dateOfBirth);
     void setCountryShortName(String countryShortName);
-    void setIsActive(char isActive);
+
+    boolean getIsActive();
 
     String getPassword();
+
     String getSurname();
+
     String getLastname();
+
     String getEmail();
+
     String getTelephone();
+
     String getPhoto();
+
     String getNickName();
+
     String getGender();
+
     Date getDateOfBirth();
+
     String getCountryShortName();
-    char getIsActive();
+
+    void setIsActive(String isActive);
 }
