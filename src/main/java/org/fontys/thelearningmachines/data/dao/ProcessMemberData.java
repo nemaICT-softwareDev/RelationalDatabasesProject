@@ -54,7 +54,7 @@ public final class ProcessMemberData {
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             for (MemberInterface member : memberList) {
                 connection.prepareStatement("INSERT INTO [Member] (Surname, Lastname, Nickname, " +
-                        "Emailaddress, Telephone, PhotoUrl, GenderId, Password, CONVERT(datetime, DateOfBirth, 111), " +
+                        "Emailaddress, Telephone, PhotoUrl, GenderId, Password, DateOfBirth, " +
                         "CountryId, isActive) " +
                         "VALUES ('" + member.getSurname() + "','" + member.getLastname() + "'," +
                         "'" + member.getNickName() + "','" + member.getEmail() + "'," +
