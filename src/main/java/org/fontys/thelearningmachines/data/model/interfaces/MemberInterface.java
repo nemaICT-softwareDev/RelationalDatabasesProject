@@ -6,26 +6,46 @@ import java.util.Date;
 public interface MemberInterface {
 
     void setPassword(String password);
+
     void setSurname(String surname);
+
     void setLastname(String lastname);
+
     void setEmailAddress(String mailaddress);
+
     void setTelephone(String telephone);
-    void setPhoto(String photo);
+
+    String getPhotoUrl();
+
     void setNickname(String nickname);
-    void setGender(String gender);
+
+    void setPhotoUrl(String photoUrl);
+
     void setDateOfBirth(String dateOfBirth) throws ParseException;
-    void setCountryShortName(String countryShortName);
+
+    String getGenderId();
+
     void setIsActive(char isActive);
 
     String getPassword();
+
     String getSurname();
+
     String getLastname();
+
     String getEmail();
+
     String getTelephone();
-    String getPhoto();
+
+    void setGenderId(String genderId);
+
     String getNickName();
-    String getGender();
+
+    String getCountryId();
+
     Date getDateOfBirth();
-    String getCountryShortName();
+
+    void setCountryId(String countryId);
+
     char getIsActive();
 }

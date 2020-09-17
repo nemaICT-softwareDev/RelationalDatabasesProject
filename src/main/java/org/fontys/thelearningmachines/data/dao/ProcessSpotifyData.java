@@ -33,7 +33,7 @@ public final class ProcessSpotifyData {
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             for (SpotifyInterface music : spotifyList) {
-                connection.prepareStatement("INSERT INTO Music (MusicId, SpotifyLink) VALUES ('" + music.getName() + "', '" + music.getLink() + "');", Statement.RETURN_GENERATED_KEYS).execute();
+                connection.prepareStatement("INSERT INTO [Music] (MusicId, SpotifyLink) VALUES ('" + music.getName() + "', '" + music.getLink() + "');", Statement.RETURN_GENERATED_KEYS).execute();
                 logger.info(music.toString());
             }
         } catch (SQLException e) {

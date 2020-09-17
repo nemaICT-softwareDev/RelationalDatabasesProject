@@ -2,7 +2,7 @@ package org.fontys.thelearningmachines.data.model.interfaces;
 
 public interface GenderInterface {
 
-    void setGender(String gender);
+    String getGenderId();
 
-    String getGender();
+    void setGenderId(String genderId);
 }

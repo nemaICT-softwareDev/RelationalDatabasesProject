@@ -32,7 +32,7 @@ public final class ProcessGenderData {
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             for (GenderInterface gender : genderList) {
-                connection.prepareStatement("INSERT INTO Gender (genderId) VALUES ('" + gender.getGender() + "');", Statement.RETURN_GENERATED_KEYS).execute();
+                connection.prepareStatement("INSERT INTO [Gender] (genderId) VALUES ('" + gender.getGenderId() + "');", Statement.RETURN_GENERATED_KEYS).execute();
                 logger.info(gender.toString());
             }
         } catch (SQLException e) {

@@ -6,24 +6,24 @@ import java.text.MessageFormat;
 
 public final class GenderModel implements GenderInterface {
 
-    private String gender;
+    private String genderId;
 
-    public GenderModel(String gender) {
-        this.gender = gender;
+    public GenderModel(String genderId) {
+        this.genderId = genderId;
     }
 
     @Override
-    public void setGender(String gender) {
-        this.gender = gender;
+    public String getGenderId() {
+        return genderId;
     }
 
     @Override
-    public String getGender() {
-        return gender;
+    public void setGenderId(String genderId) {
+        this.genderId = genderId;
     }
 
     @Override
     public String toString() {
-        return MessageFormat.format("{0}", this.getGender());
+        return MessageFormat.format("{0}", this.getGenderId());
     }
 }

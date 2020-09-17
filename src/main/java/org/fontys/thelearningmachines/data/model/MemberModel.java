@@ -14,11 +14,11 @@ public final class MemberModel implements MemberInterface {
     private String lastname;
     private String emailAddress;
     private String telephone;
-    private String photo;
+    private String photoUrl;
     private String nickname;
-    private String gender;
+    private String genderId;
     private Date dateOfBirth;
-    private String countryShortName;
+    private String countryId;
     private String password;
     private char isActive;
 
@@ -48,8 +48,9 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setDateOfBirth(String dateOfBirth) throws ParseException {
+        this.dateOfBirth = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dateOfBirth);
+        java.sql.Date sqlDate = new java.sql.Date(this.dateOfBirth.getTime());
     }
 
     @Override
@@ -58,18 +59,18 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setGender(String gender) {
-        this.gender = gender;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
     @Override
-    public void setDateOfBirth(String dateOfBirth) throws ParseException {
-        this.dateOfBirth = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dateOfBirth);
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     @Override
-    public void setCountryShortName(String countryShortName) {
-        this.countryShortName = countryShortName;
+    public String getGenderId() {
+        return this.genderId;
     }
 
     @Override
@@ -103,8 +104,8 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public String getPhoto() {
-        return photo;
+    public void setGenderId(String genderId) {
+        this.genderId = genderId;
     }
 
     @Override
@@ -113,8 +114,8 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public String getGender() {
-        return this.gender;
+    public String getCountryId() {
+        return countryId;
     }
 
     @Override
@@ -123,8 +124,8 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public String getCountryShortName() {
-        return countryShortName;
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
     }
 
     @Override
@@ -137,9 +138,9 @@ public final class MemberModel implements MemberInterface {
         return MessageFormat.format("{0} {1},  {2}, ({3}) - {4} - {5} - {6} - {7} - {8} - {9} ",
                 this.getSurname(), this.getLastname(),
                 this.getEmail(), this.getTelephone(),
-                this.getPhoto(), this.getNickName(),
-                this.getGender(), this.getDateOfBirth(),
-                this.getCountryShortName(),
+                this.getPhotoUrl(), this.getNickName(),
+                this.getGenderId(), this.getDateOfBirth(),
+                this.getCountryId(),
                 this.getIsActive());
     }
 }
