@@ -54,6 +54,12 @@ public final class MemberModel implements MemberInterface {
         this.dateOfBirth = sqlDate;
     }
 
+    public void setDateOfBirthBackFromDatabase(String dateOfBirth) throws ParseException {
+        this.dateOfBirth = new SimpleDateFormat("YYYY-mm-dd", Locale.ENGLISH).parse(dateOfBirth);
+        java.sql.Date sqlDate = new java.sql.Date(this.dateOfBirth.getTime());
+        this.dateOfBirth = sqlDate;
+    }
+
     @Override
     public void setNickname(String nickname) {
         this.nickname = nickname;
@@ -133,6 +139,8 @@ public final class MemberModel implements MemberInterface {
     public void setIsActive(String isActive) {
         if (isActive.equals("y")) {
             this.isActive = true;
+        } else {
+            this.isActive = false;
         }
     }
 

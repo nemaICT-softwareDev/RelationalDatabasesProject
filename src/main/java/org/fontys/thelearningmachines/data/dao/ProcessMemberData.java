@@ -9,11 +9,9 @@ import org.fontys.thelearningmachines.data.reader.FileReaderImpl;
 import org.fontys.thelearningmachines.data.value.PathNames;
 import org.slf4j.Logger;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,6 +50,33 @@ public final class ProcessMemberData {
         String connectionUrl = new DatabaseConnector().dbConnector();
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
+
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM Member");
+
+            List<MemberInterface> memberResult = new ArrayList<>();
+            try {
+                while (result.next()) {
+                    MemberInterface member = new MemberModel();
+                    //memberResult.add(new MemberModel()
+                    member.setSurname(result.getString("Surname"));
+                    member.setLastname(result.getString("Lastname"));
+                    member.setNickname(result.getString("Nickname"));
+                    member.setEmailAddress(result.getString("Emailaddress"));
+                    member.setTelephone(result.getString("Telephone"));
+                    member.setPhotoUrl(result.getString("PhotoUrl"));
+                    member.setGenderId(result.getString("GenderId"));
+                    member.setPassword(result.getString("Password"));
+                    member.setDateOfBirthBackFromDatabase(result.getString("DateOfBirth"));
+                    member.setCountryId(result.getString("CountryId"));
+                    member.setIsActive(result.getString("IsActive"));
+
+                    memberResult.add(member);
+                }
+            } catch (ParseException ex) {
+                logger.error("{}", ex.getMessage());
+            }
+
             for (MemberInterface member : memberList) {
                 connection.prepareStatement("INSERT INTO [Member] (Surname, Lastname, Nickname, " +
                         "Emailaddress, Telephone, PhotoUrl, GenderId, Password, DateOfBirth, " +

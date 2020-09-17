@@ -49,5 +49,6 @@ public interface MemberInterface {
 
     void setIsActive(String isActive);
 
+    public void setDateOfBirthBackFromDatabase(String dateOfBirth) throws ParseException;
 
 }
