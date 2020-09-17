@@ -12,10 +12,7 @@ import org.slf4j.Logger;
 
 import java.sql.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public final class ProcessMemberData {
@@ -31,24 +28,21 @@ public final class ProcessMemberData {
                 .stream()
                 .map(memberDetails -> {
                     MemberInterface member = new MemberModel();
-                    Date birthDate = new Date();
                     try {
-                        birthDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(memberDetails[7]);
+                        member.setSurname(memberDetails[0]);
+                        member.setLastname(memberDetails[1]);
+                        member.setEmailAddress(memberDetails[2]);
+                        member.setTelephone(memberDetails[3]);
+                        member.setPhoto(memberDetails[4]);
+                        member.setNickname(memberDetails[5]);
+                        member.setGender(memberDetails[6]);
+                        member.setDateOfBirth(memberDetails[7]);
+                        member.setCountryShortName(memberDetails[8]);
+                        member.setPassword(memberDetails[9]);
+                        member.setIsActive(memberDetails[10]);
                     } catch (ParseException e) {
                         logger.error("{}", e.getMessage());
                     }
-                    member.setSurname(memberDetails[0]);
-                    member.setLastname(memberDetails[1]);
-                    member.setEmailAddress(memberDetails[2]);
-                    member.setTelephone(memberDetails[3]);
-                    member.setPhoto(memberDetails[4]);
-                    member.setNickname(memberDetails[5]);
-                    member.setGender(memberDetails[6]);
-                    member.setDateOfBirth(birthDate);
-                    member.setCountryShortName(memberDetails[8]);
-                    member.setPassword(memberDetails[9]);
-                    member.setIsActive(memberDetails[10]);
-
                     return member;
                 })
                 .collect(Collectors.toList());
