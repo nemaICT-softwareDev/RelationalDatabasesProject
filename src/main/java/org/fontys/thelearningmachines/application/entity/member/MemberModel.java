@@ -63,8 +63,7 @@ public final class MemberModel implements MemberInterface {
     @Override
     public void setDateOfBirth(String dateOfBirth) throws ParseException {
         this.dateOfBirth = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dateOfBirth);
-        java.sql.Date sqlDate = new java.sql.Date(this.dateOfBirth.getTime());
-        this.dateOfBirth = sqlDate;
+        this.dateOfBirth = new java.sql.Date(this.dateOfBirth.getTime());
     }
 
     @Override
