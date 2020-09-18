@@ -133,7 +133,6 @@ public final class MemberModel implements MemberInterface {
         } else {
             this.isActive = false;
         }
-
     }
 
     @Override

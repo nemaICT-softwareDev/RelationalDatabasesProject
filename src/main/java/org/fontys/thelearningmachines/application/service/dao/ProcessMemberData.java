@@ -51,7 +51,7 @@ public final class ProcessMemberData {
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             for (MemberInterface member : memberList) {
-                PreparedStatement statement = connection.prepareStatement("EXECUTE dbo.MemberList ?, ?, ?,?,?,?,?,?,?,?,?;", Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement statement = connection.prepareStatement("EXECUTE dbo.MemberList ?,?,?,?,?,?,?,?,?,?,?;", Statement.RETURN_GENERATED_KEYS);
 
                 statement.setString(1, member.getSurname());
                 statement.setString(2, member.getLastname());

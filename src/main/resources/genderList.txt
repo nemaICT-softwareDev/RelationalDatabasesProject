@@ -1,4 +1,6 @@
-Agender                                                                                                                                                                                                                                                                                                                                                                                                             Agender
+Male
+Female
+Agender2                                                                                                                                                                                                                                                                                                                                                                                                             Agender
 Androgyne
 Androgynous
 Bigender
