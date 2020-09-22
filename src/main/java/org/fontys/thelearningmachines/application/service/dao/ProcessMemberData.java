@@ -40,7 +40,7 @@ public final class ProcessMemberData {
                         member.setCountryShortName(memberDetails[8]);
                         member.setPassword(memberDetails[9]);
                         member.setIsActive(memberDetails[10]);
-
+                        member.setCreatedDate(memberDetails[11]);
                     } catch (ParseException e) {
                         logger.error("{}", e.getMessage());
                     }
@@ -52,7 +52,7 @@ public final class ProcessMemberData {
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             for (MemberInterface member : memberList) {
-                PreparedStatement statement = connection.prepareStatement("EXECUTE dbo.MemberList ?,?,?,?,?,?,?,?,?,?,?;", Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement statement = connection.prepareStatement("EXECUTE dbo.MemberList ?,?,?,?,?,?,?,?,?,?,?,?;", Statement.RETURN_GENERATED_KEYS);
 
                 statement.setString(1, member.getSurname());
                 statement.setString(2, member.getLastname());
@@ -65,6 +65,7 @@ public final class ProcessMemberData {
                 statement.setDate(9, (java.sql.Date) member.getDateOfBirth());
                 statement.setString(10, member.getCountryShortName());
                 statement.setBoolean(11, member.getIsActive());
+                statement.setDate(12, (java.sql.Date) member.getCreatedDated());
                 statement.execute();
 
                 logger.info(member.toString());
