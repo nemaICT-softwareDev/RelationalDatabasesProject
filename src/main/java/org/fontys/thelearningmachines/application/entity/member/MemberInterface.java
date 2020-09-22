@@ -25,7 +25,7 @@ public interface MemberInterface {
 
     void setCountryShortName(String countryShortName);
 
-    void setCreatedDate();
+    void setCreatedDate(String createdDate) throws ParseException;
 
     void setIsActive(String isActive);
 

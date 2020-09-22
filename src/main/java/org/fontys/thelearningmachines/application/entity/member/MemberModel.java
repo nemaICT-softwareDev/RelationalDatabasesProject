@@ -76,9 +76,9 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setCreatedDate() {
-        Date date = new Date();
-        this.createdDate = date;
+    public void setCreatedDate(String createdDate) throws ParseException {
+        this.createdDate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(createdDate);
+        this.createdDate = new java.sql.Date(this.createdDate.getTime());
     }
 
     @Override
