@@ -40,6 +40,7 @@ public final class ProcessMemberData {
                         member.setCountryShortName(memberDetails[8]);
                         member.setPassword(memberDetails[9]);
                         member.setIsActive(memberDetails[10]);
+
                     } catch (ParseException e) {
                         logger.error("{}", e.getMessage());
                     }
