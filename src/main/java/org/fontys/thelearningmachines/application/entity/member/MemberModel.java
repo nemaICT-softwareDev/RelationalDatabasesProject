@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+
 public final class MemberModel implements MemberInterface {
+
 
     private String surname;
     private String lastname;
@@ -19,6 +21,8 @@ public final class MemberModel implements MemberInterface {
     private String countryShortName;
     private String password;
     private boolean isActive;
+    private Date createdDate;
+
 
     @Override
     public void setPassword(String password) {
@@ -69,6 +73,12 @@ public final class MemberModel implements MemberInterface {
     @Override
     public void setCountryShortName(String countryShortName) {
         this.countryShortName = countryShortName;
+    }
+
+    @Override
+    public void setCreatedDate() {
+        Date date = new Date();
+        this.createdDate = date;
     }
 
     @Override
@@ -124,6 +134,11 @@ public final class MemberModel implements MemberInterface {
     @Override
     public String getCountryShortName() {
         return countryShortName;
+    }
+
+    @Override
+    public Date getCreatedDated() {
+        return this.createdDate;
     }
 
     @Override

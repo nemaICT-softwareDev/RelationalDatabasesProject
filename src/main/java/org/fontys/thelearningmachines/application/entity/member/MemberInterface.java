@@ -25,6 +25,10 @@ public interface MemberInterface {
 
     void setCountryShortName(String countryShortName);
 
+    void setCreatedDate();
+
+    void setIsActive(String isActive);
+
     boolean getIsActive();
 
     String getPassword();
@@ -47,5 +51,6 @@ public interface MemberInterface {
 
     String getCountryShortName();
 
-    void setIsActive(String isActive);
+    Date getCreatedDated();
+
 }

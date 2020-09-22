@@ -2,6 +2,7 @@ package org.fontys.thelearningmachines.application.entity.country;
 
 public final class CountryModel implements CountryInterface {
 
+
     private String countryFullName;
     private String countryShortName;
     private String localisationCode;
