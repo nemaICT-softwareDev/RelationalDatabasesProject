@@ -78,6 +78,7 @@ public final class MemberModel implements MemberInterface {
     @Override
     public void setCreatedDate(String createdDate) throws ParseException {
        this.createdDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.ENGLISH).parse(createdDate);
+        this.createdDate = new java.sql.Date(this.createdDate.getTime());
     }
 
     @Override
@@ -142,11 +143,7 @@ public final class MemberModel implements MemberInterface {
 
     @Override
     public void setIsActive(String isActive) {
-        if (isActive.equals("y")) {
-            this.isActive = true;
-        } else {
-            this.isActive = false;
-        }
+        this.isActive = isActive.equals("y");
     }
 
     @Override

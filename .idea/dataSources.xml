@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@mssql.fhict.local" uuid="2f7b37e8-27be-41d2-a841-954e87d7b80e">
-      <driver-ref>sqlserver.jtds</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:jtds:sqlserver://mssql.fhict.local</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="Microsoft SQL Server (jTds) - @mssql.fhict.local" uuid="01200060-2db3-41ff-a6c1-f9b29b36285c">
       <driver-ref>sqlserver.jtds</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:jtds:sqlserver://mssql.fhict.local</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="@mssql.fhict.local [2]" uuid="d553c1b1-1308-4d77-9166-8f0d13aad6e0">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://mssql.fhict.local</jdbc-url>
     </data-source>
   </component>
 </project>
