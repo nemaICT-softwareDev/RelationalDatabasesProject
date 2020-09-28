@@ -13,7 +13,7 @@ public class Main {
         try {
 //            new ProcessSpotifyData(log);
             new ProcessMemberData(log);
-//            new ProcessGenderData(log);
+ //           new ProcessGenderData(log);
         } catch (FileReadException e) {
             log.error("{}", e.getMessage());
         }

@@ -6,9 +6,9 @@ public class DatabaseConnection {
 
     public DatabaseConnection() {
         this.connectionUrl = "jdbc:sqlserver://mssql.fhict.local:1433;" +
-                "database=dbi431929;" +
-                "user=dbi431929;" +
-                "password=FontysICTs4!;" +
+                "database=dbi431216;" +
+                "user=dbi431216;" +
+                "password=D(X.EcF&Y9Sz$FPe;" +
                 "encrypt=false;" +
                 "trustServerCertificate=false;" +
                 "loginTimeout=30;";

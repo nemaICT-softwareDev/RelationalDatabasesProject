@@ -21,7 +21,7 @@ public final class PathNames {
     }
 
     public static String asGenderList() {
-        return new PathNames("src/main/resources/genderList.txt").getPathname();
+        return new PathNames("src/main/resources/LijstGender.txt").getPathname();
     }
 
 }
