@@ -16,16 +16,16 @@ public final class FileReaderImpl extends AbstractReader implements ReaderInterf
 
     public List<String[]> getList() throws FileReadException {
         try {
+            ReaderOptionInterface options = super.getOptions();
+
             return FileUtils.readLines(this.getFile(), StandardCharsets.UTF_8)
                 .stream()
-                .skip(super.getOptions().getSkipRows())
-                .map(s -> s.split(";"))
-                .collect(Collectors.toList())
-            ;
+                .skip(options.getSkipRows())
+                .limit(options.getLimitRows())
+                .map(str -> str.split(options.getDelimiter()))
+                .collect(Collectors.toList());
         } catch (IOException e) {
             throw new FileReadException(this.getFile().getPath());
         }
     }
-
-
 }

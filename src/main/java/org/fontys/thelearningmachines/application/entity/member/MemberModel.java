@@ -1,14 +1,13 @@
 package org.fontys.thelearningmachines.application.entity.member;
 
+import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-
 public final class MemberModel implements MemberInterface {
-
 
     private String surname;
     private String lastname;
@@ -22,7 +21,6 @@ public final class MemberModel implements MemberInterface {
     private String password;
     private boolean isActive;
     private Date createdDate;
-
 
     @Override
     public void setPassword(String password) {
@@ -65,9 +63,9 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setDateOfBirth(String dateOfBirth) throws ParseException {
-        this.dateOfBirth = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dateOfBirth);
-        this.dateOfBirth = new java.sql.Date(this.dateOfBirth.getTime());
+    public void setDateOfBirth(String dateOfBirth, String format) throws ParseException {
+        Date date = new SimpleDateFormat(format, Locale.ENGLISH).parse(dateOfBirth);
+        this.dateOfBirth = new java.sql.Date(date.getTime());
     }
 
     @Override
@@ -76,14 +74,14 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setCreatedDate(String createdDate) throws ParseException {
-       this.createdDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.ENGLISH).parse(createdDate);
-        this.createdDate = new java.sql.Date(this.createdDate.getTime());
+    public void setCreatedDate(String createdDate, String format) throws ParseException {
+        Date date = new SimpleDateFormat(format, Locale.ENGLISH).parse(createdDate);
+        this.createdDate = new java.sql.Date(date.getTime());
     }
 
     @Override
-    public boolean getIsActive() {
-        return isActive;
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     @Override
@@ -142,18 +140,24 @@ public final class MemberModel implements MemberInterface {
     }
 
     @Override
-    public void setIsActive(String isActive) {
-        this.isActive = isActive.equals("y");
+    public boolean getIsActive() {
+        return this.isActive;
     }
 
     @Override
     public String toString() {
-        return MessageFormat.format("{0} {1},  {2}, ({3}) - {4} - {5} - {6} - {7} - {8} - {9} ",
-                this.getSurname(), this.getLastname(),
-                this.getEmail(), this.getTelephone(),
-                this.getPhoto(), this.getNickName(),
-                this.getGender(), this.getDateOfBirth(),
-                this.getCountryShortName(),
-                this.getIsActive());
+        return MessageFormat.format("[{0}] {1} {2} ({3}, {4}) - {5} - {6}:{7} - {8} - {9} {10}",
+            this.getCountryShortName(),
+            this.getSurname(),
+            this.getLastname(),
+            this.getEmail(),
+            this.getTelephone(),
+            this.getGender(),
+            this.getNickName(),
+            this.getPassword(),
+            this.getDateOfBirth(),
+            this.getIsActive(),
+            this.getCreatedDated()
+        );
     }
 }

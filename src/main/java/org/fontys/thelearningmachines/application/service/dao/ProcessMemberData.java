@@ -36,11 +36,11 @@ public final class ProcessMemberData {
                         member.setPhoto(memberDetails[4]);
                         member.setNickname(memberDetails[5]);
                         member.setGender(memberDetails[6]);
-                        member.setDateOfBirth(memberDetails[7]);
+                        member.setDateOfBirth(memberDetails[7], "MMMM d, yyyy");
                         member.setCountryShortName(memberDetails[8]);
                         member.setPassword(memberDetails[9]);
-                        member.setIsActive(memberDetails[10]);
-                        member.setCreatedDate(memberDetails[11]);
+                        member.setIsActive(memberDetails[10].equals("Y"));
+                        member.setCreatedDate(memberDetails[11], "yyyy-MM-dd HH:mm:ss.SSS");
                     } catch (ParseException e) {
                         logger.error("{}", e.getMessage());
                     }
@@ -48,11 +48,11 @@ public final class ProcessMemberData {
                 })
                 .collect(Collectors.toList());
 
-        String connectionUrl = new DatabaseConnection().getConnectionUrl();
+        String connectionUrl = DatabaseConnection.getConnectionUrl();
 
         try (Connection connection = DriverManager.getConnection(connectionUrl)) {
             for (MemberInterface member : memberList) {
-                PreparedStatement statement = connection.prepareStatement("EXECUTE dbo.UpdateMembers ?,?,?,?,?,?,?,?,?,?,?,?;", Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement statement = connection.prepareStatement("EXECUTE [dbo].[UpdateMembers] ?,?,?,?,?,?,?,?,?,?,?,?;", Statement.RETURN_GENERATED_KEYS);
 
                 statement.setString(1, member.getSurname());
                 statement.setString(2, member.getLastname());

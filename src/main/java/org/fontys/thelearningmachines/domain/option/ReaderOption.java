@@ -3,8 +3,9 @@ package org.fontys.thelearningmachines.domain.option;
 public class ReaderOption implements ReaderOptionInterface {
 
     private String pathname;
-    private String delimiter = ";";
-    private Integer skipRows = 0;
+    private String delimiter;
+    private Integer skipRows;
+    private Integer limitRows;
 
     @Override
     public void setPathname(String pathname) {
@@ -22,6 +23,11 @@ public class ReaderOption implements ReaderOptionInterface {
     }
 
     @Override
+    public void setLimitRows(Integer limitRows) {
+        this.limitRows = limitRows;
+    }
+
+    @Override
     public String getPathname() {
         return pathname;
     }
@@ -34,5 +40,10 @@ public class ReaderOption implements ReaderOptionInterface {
     @Override
     public Integer getSkipRows() {
         return skipRows;
+    }
+
+    @Override
+    public Integer getLimitRows() {
+        return limitRows;
     }
 }

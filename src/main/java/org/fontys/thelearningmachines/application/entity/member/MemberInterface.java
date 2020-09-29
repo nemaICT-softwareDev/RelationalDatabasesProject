@@ -1,9 +1,11 @@
 package org.fontys.thelearningmachines.application.entity.member;
 
+import org.fontys.thelearningmachines.application.entity.EntityInterface;
+
 import java.text.ParseException;
 import java.util.Date;
 
-public interface MemberInterface {
+public interface MemberInterface extends EntityInterface {
 
     void setPassword(String password);
 
@@ -21,15 +23,13 @@ public interface MemberInterface {
 
     void setGender(String gender);
 
-    void setDateOfBirth(String dateOfBirth) throws ParseException;
+    void setDateOfBirth(String dateOfBirth, String format) throws ParseException;
 
     void setCountryShortName(String countryShortName);
 
-    void setCreatedDate(String createdDate) throws ParseException;
+    void setCreatedDate(String createdDate, String format) throws ParseException;
 
-    void setIsActive(String isActive);
-
-    boolean getIsActive();
+    void setIsActive(boolean isActive);
 
     String getPassword();
 
@@ -52,5 +52,7 @@ public interface MemberInterface {
     String getCountryShortName();
 
     Date getCreatedDated();
+
+    boolean getIsActive();
 
 }

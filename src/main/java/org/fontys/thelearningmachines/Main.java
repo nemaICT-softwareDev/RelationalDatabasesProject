@@ -7,15 +7,15 @@ import org.slf4j.LoggerFactory;
 
 public class Main {
 
-    private static final Logger log = LoggerFactory.getLogger(org.fontys.thelearningmachines.Main.class);
+    private static final Logger logger = LoggerFactory.getLogger(org.fontys.thelearningmachines.Main.class);
 
     public static void main(String[] args) {
         try {
-//            new ProcessSpotifyData(log);
-            new ProcessMemberData(log);
- //           new ProcessGenderData(log);
+            new ProcessSpotifyData(logger);
+            new ProcessPersonData(logger);
+            new ProcessGenderData(logger);
         } catch (FileReadException e) {
-            log.error("{}", e.getMessage());
+            logger.error("{}", e.getMessage());
         }
     }
 }

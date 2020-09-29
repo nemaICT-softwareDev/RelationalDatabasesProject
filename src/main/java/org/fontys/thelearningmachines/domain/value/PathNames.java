@@ -8,20 +8,29 @@ public final class PathNames {
         this.pathname = pathname;
     }
 
+    @Override
+    public String toString() {
+        return this.getPathname();
+    }
+
     public String getPathname() {
         return pathname;
     }
 
     public static String asSpotify() {
-        return new PathNames("src/main/resources/spotify.csv").getPathname();
+        return new PathNames("src/main/resources/import/spotify.csv").toString();
     }
 
     public static String asMemberList() {
-        return new PathNames("src/main/resources/membersList.csv").getPathname();
+        return new PathNames("src/main/resources/import/membersList.csv").toString();
+    }
+
+    public static String asPersonList() {
+        return new PathNames("src/main/resources/import/CafePerson.txt").toString();
     }
 
     public static String asGenderList() {
-        return new PathNames("src/main/resources/LijstGender.txt").getPathname();
+        return new PathNames("src/main/resources/import/LijstGender.txt").toString();
     }
 
 }
